@@ -8,6 +8,8 @@ public class Context : DbContext
     public DbSet<smsToken> smsTokens { get; set; }
     public DbSet<Category> Categories_tbl { get; set; }
     public DbSet<UserCats> UserCats_tbl { get; set; }
+    public DbSet<Files> Files_tbl { get; set; }
+    public DbSet<FileCat> FileCats_tbl { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

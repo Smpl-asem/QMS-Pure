@@ -24,7 +24,7 @@ public class AuthController : Controller
     {
         if (User.Identity.IsAuthenticated)
         {
-            return RedirectToAction("index", "email");
+            return RedirectToAction("index", "home");
         }
         if (db.smsTokens.Count() == 0)
         {
@@ -107,95 +107,9 @@ public class AuthController : Controller
                 return RedirectToAction("ReportSeen", "home", new { area = "admin" });
             }
 
-            return RedirectToAction("index", "email");
+            return RedirectToAction("index", "home");
         }
         return View();
-    }
-
-    [HttpGet]
-    public IActionResult Register()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> RegisterAsync(DtodUser user)
-    {
-        string PathSave;
-
-        Users check =
-            db
-                .Users_tbl
-                .FirstOrDefault(x =>
-                    x.Username == user.Username ||
-                    x.NatinalCode == user.NatinalCode ||
-                    x.Phone == user.Phone);
-        if (check != null)
-        {
-            if (check.Username == user.Username.ToLower())
-            {
-                ViewBag.Error = ("کاربر وارد شده تکراری است");
-                return View();
-            }
-            else if (check.NatinalCode == user.NatinalCode)
-            {
-                ViewBag.Error = ("کد ملی وارد شده تکراری است");
-                return View();
-            }
-            else if (check.Phone == user.Phone)
-            {
-                ViewBag.Error = ("شماره تلفن وارد شده  تکراری است");
-                return View();
-            }
-            else
-            {
-                ViewBag.Error = "مشکلی پیش امده است ، با پشتیبانی تماس بگیرید";
-                return View();
-            }
-        }
-        else
-        {
-            string FileExtension = Path.GetExtension(user.Profile.FileName);
-            var NewFileName =
-                String.Concat(Guid.NewGuid().ToString(), FileExtension);
-            var path = $"{_env.WebRootPath}\\uploads\\{NewFileName}";
-            PathSave = $"\\uploads\\{NewFileName}";
-            using (var stream = new FileStream(path, FileMode.Create))
-            {
-                await user.Profile.CopyToAsync(stream);
-            }
-
-            var NewUser =
-                new Users
-                {
-                    Username = user.Username.ToLower(),
-                    Password =
-                        BCrypt
-                            .Net
-                            .BCrypt
-                            .HashPassword(user.Password +
-                            salt +
-                            user.Username.ToLower()),
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    Phone = user.Phone,
-                    Addres = user.Addres,
-                    NatinalCode = user.NatinalCode,
-                    PerconalCode = user.PerconalCode,
-                    Profile = PathSave,
-                    CreateDateTime = DateTime.UtcNow,
-                    Token = "null"
-                };
-            db.Users_tbl.Add(NewUser);
-            db.SaveChanges();
-
-
-            CreateUserLog((int)NewUser.Id, 3, true);
-            CreateUserLog((int)NewUser.Id, 7, true);
-
-            ViewBag.Result = "ثبت نام با موفقیت انجام شد ";
-            return View("login");
-        }
     }
 
     [HttpGet]
@@ -379,7 +293,7 @@ public class AuthController : Controller
                 .HashPassword(password + salt + check.Username.ToLower());
         db.SaveChanges();
         CreateUserLog((int)check.Id, 5, true);
-        return RedirectToAction("index", "email");
+        return RedirectToAction("index", "home");
     }
 
     private void SmsCode(string Code, string Phone)

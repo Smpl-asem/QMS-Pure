@@ -87,7 +87,7 @@ public class HomeController : Controller
 
     public IActionResult ReportSeen()
     {
-        ViewBag.Categories = dbs.Categories_tbl.Where(x => x.ParentId == 0).OrderByDescending(x => x.Id).ToList();
+        ViewBag.Categories = dbs.Categories_tbl.Where(x => x.ParentId == 0).OrderByDescending(x => x.Id).ToList(); 
 
         return View();
     }
@@ -318,7 +318,8 @@ public class HomeController : Controller
                 {
                     CatId = catId,
                     UserId = id,
-                    CreateDateTime = DateTime.UtcNow
+                    CreateDateTime = DateTime.UtcNow,
+                    type = type
                 });
                 dbs.SaveChanges();
             }

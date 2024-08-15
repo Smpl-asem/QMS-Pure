@@ -16,7 +16,7 @@ namespace qms_pure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.8")
+                .HasAnnotation("ProductVersion", "8.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -52,6 +52,65 @@ namespace qms_pure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories_tbl");
+                });
+
+            modelBuilder.Entity("FileCat", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+
+                    b.Property<int>("CatId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreateDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SenderUserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CatId");
+
+                    b.HasIndex("SenderUserId");
+
+                    b.ToTable("FileCats_tbl");
+                });
+
+            modelBuilder.Entity("Files", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+
+                    b.Property<DateTime?>("CreateDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FileCatId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FileCatId");
+
+                    b.ToTable("Files_tbl");
                 });
 
             modelBuilder.Entity("UserCats", b =>
@@ -205,6 +264,36 @@ namespace qms_pure.Migrations
                     b.ToTable("sms_tbl");
                 });
 
+            modelBuilder.Entity("FileCat", b =>
+                {
+                    b.HasOne("Category", "Cat")
+                        .WithMany()
+                        .HasForeignKey("CatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Users", "SenderUser")
+                        .WithMany()
+                        .HasForeignKey("SenderUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cat");
+
+                    b.Navigation("SenderUser");
+                });
+
+            modelBuilder.Entity("Files", b =>
+                {
+                    b.HasOne("FileCat", "FileCat")
+                        .WithMany("Files")
+                        .HasForeignKey("FileCatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("FileCat");
+                });
+
             modelBuilder.Entity("UserCats", b =>
                 {
                     b.HasOne("Category", "Cat")
@@ -238,6 +327,11 @@ namespace qms_pure.Migrations
             modelBuilder.Entity("Category", b =>
                 {
                     b.Navigation("Subs");
+                });
+
+            modelBuilder.Entity("FileCat", b =>
+                {
+                    b.Navigation("Files");
                 });
 
             modelBuilder.Entity("Users", b =>
