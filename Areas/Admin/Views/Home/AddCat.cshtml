@@ -1,0 +1,69 @@
+@model Category
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="col-xxl">
+        @if (ViewBag.Error != null)
+
+        {
+            <div class="alert alert-solid-danger alert-dismissible d-flex align-items-center" role="alert">
+                @ViewBag.Error
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+
+
+        <div class="card mb-4" >
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 class="mb-0">دسته بندی جدید</h5>
+                <small class="text-muted float-end primary-font">دسته بندی</small>
+            </div>
+            <div class="card-body">
+                <form action="/Admin/Home/AddCat" id="form" method="post">
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-default-company">نام دسته</label>
+                        <div class="col-sm-10">
+                            <input required type="text" class="form-control" id="basic-default-company"
+                                placeholder="نام دسته را وارد کنید" asp-for="CatName">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-default-company2">کد دسته</label>
+                        <div class="col-sm-10">
+                            <input required type="text" class="form-control" id="basic-default-company2"
+                                placeholder="کد دسته را وارد کنید" asp-for="CatCode">
+                        </div>
+                    </div>
+                    <input type="hidden" asp-for="Id">
+
+
+                    <div class="row md-3">
+                        <label for="Parent" class="col-sm-2 col-form-label">نام دسته والد</label>
+                        <div class="col-sm-10 " >
+                            <select id="Parent" class="select2 form-select"  asp-for="ParentId">
+                                <option value="0">دسته اصلی</option>
+                                @if (ViewBag.Cats != null)
+
+                                {
+                                    @foreach (var item in ViewBag.Cats)
+
+                                    {
+                                        @if(item.ParentId == 0){
+                                        <option value="@item.Id">@item.CatName</option>
+                                        }
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row justify-content-end">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">ذخیره</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</div>

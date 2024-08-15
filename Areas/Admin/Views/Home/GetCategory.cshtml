@@ -1,0 +1,82 @@
+@model Users
+<div class="container-xxl flex-grow-1 container-p-y">
+  <div class="col-xxl">
+      @if (ViewBag.Error != null)
+      {
+          <div class="alert alert-solid-danger alert-dismissible d-flex align-items-center" role="alert">
+              @ViewBag.Error
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+      }
+      @* table show list category and delete and edit *@
+      <div class="card mb-4 table-responsive">
+          <div class="card-header d-flex align-items-center justify-content-between ">
+              <h5 class="mb-0">لیست دسترسی ها</h5>
+          </div>
+          <div class="card-body">
+              <table class="table table-hover ">
+                  <thead>
+                      <tr>
+                          <th scope="col">ردیف</th>
+                          <th scope="col">عکس پروفایل</th>
+                          <th scope="col">نام و نام خانوادگی</th>
+                          <th scope="col">کد ملی</th>
+                          <th scope="col">کد پرسنلی</th>
+                          <th scope="col">نام کاربری</th>
+                          <th scope="col">تلفن</th>
+                          <th scope="col">عنوان دسترسی ها</th>
+                          <th scope="col">عملیات</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      @if (ViewBag.Users != null)
+                      {
+                          int i = 1;
+                          foreach (var item in ViewBag.Users)
+                          {
+                              <tr>
+                                <td scope="row">@i</td>
+                                <td><img src="@item.Profile" alt="عکس پروفایل" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;"></td>  
+                                <td>
+                                    @item.FirstName @item.LastName
+                                </td>
+                                  <td>@item.PerconalCode</td>
+                                  <td>@item.NatinalCode</td>
+                                  <td>@item.Username</td>
+                                  <td>@item.Phone</td>
+                                  <td>
+                                    @if(item.Categories.Count == 0){
+                                        <span>بدون دسترسی</span>
+                                    }
+                                    else{  
+                                        @foreach(var cat in item.Categories){
+                                            <div class="mb-1" style="white-space: nowrap;">
+                                                @cat.Cat.CatName (
+                                                    @if(cat.type==1){
+                                                        <span>R</span>
+                                                    }
+                                                    else if(cat.type==2){
+                                                        <span>W</span>
+                                                    }
+                                                    else if(cat.type==3){
+                                                        <span>R/W</span>
+                                                    }
+                                                    )
+                                                <a href="/Admin/Home/DelCategories/@cat.Id" class="bx bx-trash" style="color: red;" onclick="return confirm('آیا از حذف مطمئن هستید ؟')"></a>
+                                            </div>
+                                        }
+                                    }
+                                  </td>
+                                  <td>
+                                        <a href="/Admin/Home/Categories/@item.Id" class="btn btn-primary">اضافه دسترسی</a>
+                                  </td>
+                              </tr>
+                              i++;
+                          }
+                      }
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>
