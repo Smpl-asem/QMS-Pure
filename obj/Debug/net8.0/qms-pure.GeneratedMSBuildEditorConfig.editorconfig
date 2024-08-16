@@ -9,135 +9,135 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = qms_pure
 build_property.RootNamespace = qms_pure
-build_property.ProjectDir = C:\Users\asemn\Desktop\qms-master\qms-pure\
+build_property.ProjectDir = c:\Users\asemn\Desktop\qms-master\qms-pure\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\asemn\Desktop\qms-master\qms-pure
+build_property.MSBuildProjectDirectory = c:\Users\asemn\Desktop\qms-master\qms-pure
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/AddCat.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/AddCat.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxBZGRDYXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/AddProp.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/AddProp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxBZGRQcm9wLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/Categories.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/Categories.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxDYXRlZ29yaWVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/EditCat.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/EditCat.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxFZGl0Q2F0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/GetCategory.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/GetCategory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxHZXRDYXRlZ29yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/GetUsers.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/GetUsers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxHZXRVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/ProfileUser.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/ProfileUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxQcm9maWxlVXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/Register.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/ReportSeen.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/ReportSeen.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxSZXBvcnRTZWVuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/SubReportSeen.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/SubReportSeen.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxTdWJSZXBvcnRTZWVuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/UserSetting.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/UserSetting.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxVc2VyU2V0dGluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/View.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/View.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/ViewCat.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/ViewCat.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxWaWV3Q2F0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/_ViewImports.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/_ViewStart.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Views/Auth/forget.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Views/Auth/forget.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxmb3JnZXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Views/Auth/login.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Views/Auth/login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxsb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Views/Auth/NotAuthorized.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Views/Auth/NotAuthorized.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxOb3RBdXRob3JpemVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Views/Auth/resetPassword.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Views/Auth/resetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxyZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Views/Auth/Verify.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Views/Auth/Verify.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxWZXJpZnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Views/Home/Index.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Views/Home/IndexSub.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Views/Home/IndexSub.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFN1Yi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Views/Home/View.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Views/Home/View.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Views/User/ProfileUser.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Views/User/ProfileUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlVXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Views/User/UserSetting.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Views/User/UserSetting.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyU2V0dGluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Views/_ViewImports.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Views/_ViewStart.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Shared/_Layout.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-b2t06kgyat
 
-[C:/Users/asemn/Desktop/qms-master/qms-pure/Views/Shared/_Layout.cshtml]
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-c1im0ypewi
