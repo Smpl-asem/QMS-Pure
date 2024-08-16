@@ -38,12 +38,13 @@
                 background-color: #ceddfa  !important;
             }
         </style>
-        foreach(var item in ViewBag.Categories){
-
-                    <a class="folder-card card col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 m-2" href="/Admin/home/SubReportSeen/@item.Id">  
-                    <div class="notification-badge">3</div>  
+        for(int i=0 ; i<ViewBag.Categories.Count ; i++){
+                    <a class="folder-card card col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 m-2" href="/Admin/home/SubReportSeen/@ViewBag.Categories[i].Id">  
+                    @if(ViewBag.notif[i] != 0){
+                        <div class="notification-badge">@ViewBag.notif[i]</div>
+                    }
                         <img src="/assets/img/Folder.png" alt="📁">  
-                        <div class="folder-name">@item.CatName</div>  
+                        <div class="folder-name">@ViewBag.Categories[i].CatName</div>  
                     </a>
             <br>
         }

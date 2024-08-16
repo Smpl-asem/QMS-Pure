@@ -68,6 +68,7 @@ public class HomeController : Controller
         dbs.Categories_tbl.Add(new Category
         {
             ParentId = ParentId,
+            ParentName = ParentId == 0 ? "دسته اصلی" : dbs.Categories_tbl.Find(ParentId).CatName,
             CatName = CatName,
             CatCode = (int)CatCode,
             CreateDateTime = DateTime.Now
@@ -87,13 +88,21 @@ public class HomeController : Controller
 
     public IActionResult ReportSeen()
     {
-        ViewBag.Categories = dbs.Categories_tbl.Where(x => x.ParentId == 0).OrderByDescending(x => x.Id).ToList(); 
+        var cats = dbs.Categories_tbl.Where(x => x.ParentId == 0).OrderByDescending(x => x.Id).ToList(); 
+        ViewBag.Categories = cats;
+
+        var notif = cats.Select(x=> dbs.FileCats_tbl.Where(y=>y.Cat.ParentId == x.Id && y.isRead == false).Count()).ToList();
+        ViewBag.notif = notif;
 
         return View();
     }
     public IActionResult SubReportSeen(int Id)
     {
-        ViewBag.Categories = dbs.Categories_tbl.Where(x => x.ParentId == Id).OrderByDescending(x => x.Id).ToList();
+        var cats = dbs.Categories_tbl.Where(x => x.ParentId == Id).OrderByDescending(x => x.Id).ToList();
+        ViewBag.Categories = cats;
+
+        var notif = cats.Select(x=> dbs.FileCats_tbl.Where(y=>y.CatId == x.Id && y.isRead == false).Count()).ToList();
+        ViewBag.notif = notif;
 
         return View();
     }
@@ -328,10 +337,21 @@ public class HomeController : Controller
     }
 
     [HttpGet]
-    public IActionResult View(int id){
+    public IActionResult view(int id){
 
-        ViewBag.Cat = dbs.Categories_tbl.Find(id);
-        ViewBag.Data = dbs.FileCats_tbl.Where(x => x.CatId == id).Include(x => x.Files).Include(x => x.SenderUser).OrderByDescending(x => x.Id).ToList();
+        var cats= dbs.Categories_tbl.Find(id);
+        ViewBag.Cat = cats; 
+        
+        List<FileCat> datas = dbs.FileCats_tbl.Where(x => x.CatId == id).Include(x => x.Files).Include(x => x.SenderUser).OrderByDescending(x => x.Id).ToList();
+        ViewBag.Data = datas;
+
+        foreach(FileCat item in datas){
+            if(!item.isRead){
+                item.isRead = true;
+                dbs.FileCats_tbl.Update(item);
+                dbs.SaveChanges();
+            }
+        }
         
         return View();
     }
