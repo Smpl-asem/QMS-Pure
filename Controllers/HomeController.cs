@@ -42,7 +42,7 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult View(int id, int page = 1)
+    public IActionResult view(int id, int page = 1)
     {
         var UserCatCheck = db.UserCats_tbl.FirstOrDefault(x => x.CatId == id && x.UserId == Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         if (UserCatCheck == null)
@@ -81,6 +81,15 @@ public class HomeController : Controller
         ViewBag.Data = datasChose;
 
         ViewBag.page = page;
+
+        foreach (var item in datasChose)
+        {
+            if(item.propStatus == 2){
+                item.propStatus = 3;
+                db.FileCats_tbl.Update(item);
+                db.SaveChanges();
+            }
+        }
         return View();
     }
 
