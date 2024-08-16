@@ -42,7 +42,7 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult View(int id , int page = 1)
+    public IActionResult View(int id, int page = 1)
     {
         var UserCatCheck = db.UserCats_tbl.FirstOrDefault(x => x.CatId == id && x.UserId == Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         if (UserCatCheck == null)
@@ -84,6 +84,7 @@ public class HomeController : Controller
         return View();
     }
 
+
     [HttpPost]
     public async Task<IActionResult> AddFileAsync(int id, ICollection<IFormFile> NewFiles)
     {
@@ -100,6 +101,9 @@ public class HomeController : Controller
                 CatId = id,
                 SenderUserId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)),
                 CreateDateTime = DateTime.UtcNow,
+                isRead = false,
+                propStatus = 1,
+                propText = "empty"
             };
 
             db.FileCats_tbl.Add(newFileCat);

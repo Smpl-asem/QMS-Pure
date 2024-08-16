@@ -74,6 +74,13 @@ namespace qms_pure.Migrations
                     b.Property<bool>("isRead")
                         .HasColumnType("bit");
 
+                    b.Property<int>("propStatus")
+                        .HasColumnType("int");
+
+                    b.Property<string>("propText")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CatId");

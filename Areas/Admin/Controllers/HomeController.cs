@@ -371,4 +371,32 @@ public class HomeController : Controller
         
         return View();
     }
+
+    [HttpGet]
+    public IActionResult AddProp(int id , int FileId){
+        var check = dbs.FileCats_tbl.Include(x=>x.SenderUser).Include(x=>x.Files).FirstOrDefault(x=> x.Id == FileId);
+        ViewBag.item = check;
+        if(check.propStatus == 1 ){
+            ViewBag.id = id;
+            ViewBag.Fileid = FileId;
+            return View();
+        }
+        else{
+            ViewBag.propText = check.propText;
+            ViewBag.Fileid = FileId;
+            ViewBag.id = id;
+            return View();
+        }
+    }
+
+    [HttpPost]
+    public IActionResult AddProp(int id, int FileId , string propText)
+    {
+        var check = dbs.FileCats_tbl.Find(FileId);
+        check.propStatus = 2;
+        check.propText = propText;
+        dbs.FileCats_tbl.Update(check);
+        dbs.SaveChanges();
+        return RedirectToAction("View", new{id});
+    }
 }

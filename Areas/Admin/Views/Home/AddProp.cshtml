@@ -1,0 +1,56 @@
+@using System.Security.Claims
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="card card-body mb-4">
+
+        <div class="timeline">
+            <div class="timeline-ViewBag.item timeline-ViewBag.item-transparent">
+                <span class="timeline-point timeline-point-primary"></span>
+                <div class="timeline-event">
+                    <div class="timeline-header mb-1">
+                        <h6 class="mb-0 mt-n1"> <a class="link-primary" target="_blank"
+                                href="/Admin/Home/ProfileUser/@ViewBag.item.SenderUser.Id">@ViewBag.item.SenderUser.FirstName
+                                @ViewBag.item.SenderUser.LastName</a> @ViewBag.item.Files.Count فایل ارسال کرد.</h6>
+                        <small class="text-muted mt-1 mt-sm-0 mb-1 mb-sm-0">
+                            @if (DateTime.Now.AddDays(-1) < ViewBag.item.CreateDateTime && ViewBag.item.SenderUserId ==
+                            Convert.ToInt32(User.FindFirst(ClaimTypes.NameIdentifier)?.Value))
+
+
+
+                            {
+                                <a type="button" class="btn-sm btn-outline-danger"
+                                    href="/home/DeleteFile/@ViewBag.Cat.Id?FileId=@ViewBag.item.Id">پاک کردن</a>
+                            }
+                            @PubDo.persianDate(ViewBag.item.CreateDateTime).Item2
+                            @PubDo.persianDate(ViewBag.item.CreateDateTime).Item1
+                        </small>
+                    </div>
+                    <p class="mb-2">
+                        @foreach (var Files in ViewBag.item.Files)
+
+
+
+                        {
+                            <a type="button" class="btn btn-primary" href="@Files.FilePath"
+                                target="_blank">@Files.FileName</a>
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card card-body mb-4">
+        @if(ViewBag.item.propStatus == 1){
+        <h6>اضافه کردن پیام</h6>
+        }
+        else{
+        <h6>ویرایش پیام</h6>
+        }
+        <form action="/admin/home/addprop" method="post">
+                <input class="form-control text-start" type="text" placeholder="متن خود را وارد کنید"
+                    value="@ViewBag.propText" name="propText">
+                <input type="hidden" value="@ViewBag.id" name="id">
+                <input type="hidden" value="@ViewBag.Fileid" name="FileId">
+            <button class="btn btn-primary " type="submit">ارسال</button>
+        </form>
+    </div>
+</div>

@@ -6,4 +6,6 @@ public class FileCat : Parent
     public Category Cat { get; set; }
     public List<Files> Files { get; set; }
     public bool isRead { get; set; }
+    public int propStatus { get; set; } // 1) empty | 2) write | 3) readed
+    public string propText { get; set; }
 }

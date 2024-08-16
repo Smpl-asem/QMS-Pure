@@ -22,6 +22,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxBZGRDYXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/AddProp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxBZGRQcm9wLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/Categories.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxDYXRlZ29yaWVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
