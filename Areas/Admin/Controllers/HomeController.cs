@@ -261,9 +261,16 @@ public class HomeController : Controller
     }
 
     [HttpGet]
-    public IActionResult ProfileUser()
+    public IActionResult ProfileUser(int? id)
     {
-        var UserId = Convert.ToInt32(User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value);
+        int UserId;
+        
+        if(!id.HasValue){
+            UserId = Convert.ToInt32(User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value);
+        }
+        else{
+            UserId = (int)id;
+        }
 
         var UserLogCheck = Log.AllUserLog(dbs, User);
         ViewBag.dataUserLog = UserLogCheck;
@@ -337,15 +344,21 @@ public class HomeController : Controller
     }
 
     [HttpGet]
-    public IActionResult view(int id){
+    public IActionResult view(int id , int page = 1){
 
         var cats= dbs.Categories_tbl.Find(id);
         ViewBag.Cat = cats; 
         
         List<FileCat> datas = dbs.FileCats_tbl.Where(x => x.CatId == id).Include(x => x.Files).Include(x => x.SenderUser).OrderByDescending(x => x.Id).ToList();
-        ViewBag.Data = datas;
+        ViewBag.DataCount = (int)Math.Ceiling((double)datas.Count/10);
+        
+        var datasChose = datas.Skip((page-1)*10).Take(10).ToList();
+        ViewBag.Data = datasChose;
+        
+        ViewBag.page = page;
 
-        foreach(FileCat item in datas){
+
+        foreach(FileCat item in datasChose){
             if(!item.isRead){
                 item.isRead = true;
                 dbs.FileCats_tbl.Update(item);

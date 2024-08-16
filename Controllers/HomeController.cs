@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using Azure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -41,7 +42,7 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult View(int id)
+    public IActionResult View(int id , int page = 1)
     {
         var UserCatCheck = db.UserCats_tbl.FirstOrDefault(x => x.CatId == id && x.UserId == Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         if (UserCatCheck == null)
@@ -51,23 +52,35 @@ public class HomeController : Controller
         var CatCheck = db.Categories_tbl.Find(UserCatCheck.CatId);
         ViewBag.Cat = CatCheck;
 
+        List<FileCat> datas;
+
         switch (UserCatCheck.type)
         {
             case 1:
                 ViewBag.CanUpload = false;
-                ViewBag.Data = db.FileCats_tbl.Where(x => x.CatId == id).Include(x => x.Files).Include(x => x.SenderUser).OrderByDescending(x => x.Id).ToList();
+                datas = db.FileCats_tbl.Where(x => x.CatId == id).Include(x => x.Files).Include(x => x.SenderUser).OrderByDescending(x => x.Id).ToList();
+                ViewBag.Data = datas;
                 break;
             case 2:
                 ViewBag.CanUpload = true;
-                ViewBag.Data = db.FileCats_tbl.Where(x => x.CatId == id && x.SenderUserId == Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)) && DateTime.UtcNow.AddDays(-1) < x.CreateDateTime).Include(x => x.Files).Include(x => x.SenderUser).OrderByDescending(x => x.Id).ToList();
+                datas = db.FileCats_tbl.Where(x => x.CatId == id && x.SenderUserId == Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)) && DateTime.UtcNow.AddDays(-1) < x.CreateDateTime).Include(x => x.Files).Include(x => x.SenderUser).OrderByDescending(x => x.Id).ToList();
+                ViewBag.Data = datas;
                 break;
             case 3:
                 ViewBag.CanUpload = true;
-                ViewBag.Data = db.FileCats_tbl.Where(x => x.CatId == id).Include(x => x.Files).Include(x => x.SenderUser).OrderByDescending(x => x.Id).ToList();
+                datas = db.FileCats_tbl.Where(x => x.CatId == id).Include(x => x.Files).Include(x => x.SenderUser).OrderByDescending(x => x.Id).ToList();
+                ViewBag.Data = datas;
                 break;
             default:
                 return Ok("شما دسترسی ندارید");
         }
+
+        ViewBag.DataCount = (int)Math.Ceiling((double)datas.Count / 10);
+
+        var datasChose = datas.Skip((page - 1) * 10).Take(10).ToList();
+        ViewBag.Data = datasChose;
+
+        ViewBag.page = page;
         return View();
     }
 
@@ -113,12 +126,13 @@ public class HomeController : Controller
                 });
                 db.SaveChanges();
             }
-            return RedirectToAction("view","home", new{id});
+            return RedirectToAction("view", "home", new { id });
         }
     }
 
     [HttpGet]
-    public IActionResult DeleteFile(int id , int FileId){
+    public IActionResult DeleteFile(int id, int FileId)
+    {
         var UserCatCheck = db.UserCats_tbl.FirstOrDefault(x => x.CatId == id && x.UserId == Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier)) && (x.type == 2 || x.type == 3));
         var check = db.FileCats_tbl.Find(FileId);
 
@@ -126,17 +140,20 @@ public class HomeController : Controller
         {
             return Ok("شما دسترسی ندارید"); // تکمیلی
         }
-        else if(check.SenderUserId != UserCatCheck.UserId)        {
+        else if (check.SenderUserId != UserCatCheck.UserId)
+        {
             return Ok("پیام برای شما نیستش"); // تکمیلی
         }
-        else if(check.CreateDateTime < DateTime.UtcNow.AddDays(-1))        {
+        else if (check.CreateDateTime < DateTime.UtcNow.AddDays(-1))
+        {
             return Ok("مهلت حذف پیام به اتمام رسیده است"); // تکمیلی
         }
-        else{
+        else
+        {
             db.FileCats_tbl.Remove(check);
             db.SaveChanges();
-            
-            return RedirectToAction("view",new{id});
+
+            return RedirectToAction("view", new { id });
         }
     }
 
