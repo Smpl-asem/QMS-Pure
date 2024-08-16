@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("qms-pure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8b044a86d5188ef7fa8528b56eafbb84b1865cff")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0552a078d1f98fe79398b60babc3530c89c936e5")]
 [assembly: System.Reflection.AssemblyProductAttribute("qms-pure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("qms-pure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

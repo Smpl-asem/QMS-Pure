@@ -326,4 +326,13 @@ public class HomeController : Controller
         }
         return RedirectToAction("GetCategory");
     }
+
+    [HttpGet]
+    public IActionResult View(int id){
+
+        ViewBag.Cat = dbs.Categories_tbl.Find(id);
+        ViewBag.Data = dbs.FileCats_tbl.Where(x => x.CatId == id).Include(x => x.Files).Include(x => x.SenderUser).OrderByDescending(x => x.Id).ToList();
+        
+        return View();
+    }
 }

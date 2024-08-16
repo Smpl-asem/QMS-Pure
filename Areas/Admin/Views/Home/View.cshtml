@@ -1,0 +1,49 @@
+﻿@using System.Security.Claims
+
+
+<!-- Content -->
+
+<div class="container-xxl flex-grow-1 container-p-y">
+        <!-- User Sidebar -->
+            <!-- User Card -->
+            <!-- Activity Timeline -->
+            <div class="card mb-4">
+                <div class="card-header mb-3">
+
+
+                    <small class="text-muted float-end primary-font">نمایش فایل ها</small>
+                    <h5 class="mb-0">@ViewBag.Cat.CatName</h5>
+
+                </div>
+                <div class="card-body">
+                    <ul class="timeline">
+                        @foreach(var item in ViewBag.Data){
+                            <li class="timeline-item timeline-item-transparent">
+                            <span class="timeline-point timeline-point-primary"></span>
+                            <div class="timeline-event">
+                                <div class="timeline-header mb-1">
+                                    <h6 class="mb-0 mt-n1">@item.SenderUser.FirstName @item.SenderUser.LastName @item.Files.Count فایل ارسال کرد.</h6>
+                                    <small class="text-muted mt-1 mt-sm-0 mb-1 mb-sm-0">
+                                    @if(DateTime.Now.AddDays(-1) < item.CreateDateTime && item.SenderUserId == Convert.ToInt32(User.FindFirst(ClaimTypes.NameIdentifier)?.Value))
+                                    {
+                                        <a type="button" class="btn-sm btn-outline-danger" href="/home/DeleteFile/@ViewBag.Cat.Id?FileId=@item.Id">پاک کردن</a>  
+                                    }
+                                    @PubDo.persianDate(item.CreateDateTime).Item2 @PubDo.persianDate(item.CreateDateTime).Item1
+                                    </small>
+                                </div>
+                                <p class="mb-2">
+                                    @foreach(var Files in item.Files){
+                                        <a type="button" class="btn btn-primary" href="@Files.FilePath"
+                                                target="_blank">@Files.FileName</a>
+                                    }
+                                </p>
+                            </div>
+                        </li>
+                        }
+                    </ul>
+            <!-- /Activity Timeline -->
+        </div>
+        <!--/ User Content -->
+    </div>
+</div>
+<!--/ Content -->

@@ -58,6 +58,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxVc2VyU2V0dGluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/View.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxWaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [c:/Users/asemn/Desktop/qms-master/qms-pure/Areas/Admin/Views/Home/ViewCat.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxWaWV3Q2F0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
