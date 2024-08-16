@@ -26,6 +26,9 @@ public class UserController : Controller
         Users Check = db.Users_tbl.Find(UserId);
         ViewBag.data = Check;
 
+        var sendFileCount = db.FileCats_tbl.Where(x=> x.SenderUserId == UserId).ToList().Count();
+        ViewBag.sfc = sendFileCount;
+
         var UserLogCheck = Log.AllUserLog(db, User);
         ViewBag.dataUserLog = UserLogCheck;
         return View();

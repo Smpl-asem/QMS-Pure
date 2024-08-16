@@ -264,7 +264,7 @@ public class HomeController : Controller
     public IActionResult ProfileUser(int? id)
     {
         int UserId;
-        
+
         if(!id.HasValue){
             UserId = Convert.ToInt32(User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value);
         }
@@ -272,6 +272,9 @@ public class HomeController : Controller
             UserId = (int)id;
         }
 
+        var sendFileCount = dbs.FileCats_tbl.Where(x=> x.SenderUserId == UserId).ToList().Count();
+        ViewBag.sfc = sendFileCount;
+         
         var UserLogCheck = Log.AllUserLog(dbs, User);
         ViewBag.dataUserLog = UserLogCheck;
 
